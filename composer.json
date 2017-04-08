@@ -2,6 +2,7 @@
   "name": "pedrofaria/router",
   "description": "Fast request router for PHP",
   "keywords": ["routing", "router"],
+  "version": "v1.0.0",
   "license": "BSD-3-Clause",
   "authors": [
     {
