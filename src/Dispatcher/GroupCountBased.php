@@ -1,0 +1,32 @@
+<?php
+
+namespace Router\Dispatcher;
+
+use Router\Exception\HttpNotFoundException;
+
+class GroupCountBased extends RegexBasedAbstract {
+    public function __construct($data) {
+        list($this->staticRouteMap, $this->variableRouteData) = $data;
+    }
+
+    protected function dispatchVariableRoute($routeData, $uri) {
+        foreach ($routeData as $data) {
+            if (!preg_match($data['regex'], $uri, $matches)) {
+                continue;
+            }
+
+            // list($handler, $varNames) = $data['routeMap'][count($matches)];
+            $route = $data['routeMap'][count($matches)];
+
+            $vars = [];
+            $i = 0;
+            foreach ($route->variables as $varName) {
+                $vars[$varName] = $matches[++$i];
+            }
+            $route->variables = $vars;
+            return $route;
+        }
+
+        throw new HttpNotFoundException;
+    }
+}
