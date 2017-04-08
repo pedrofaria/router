@@ -1,0 +1,29 @@
+{
+  "name": "pedrofaria/router",
+  "description": "Fast request router for PHP",
+  "keywords": ["routing", "router"],
+  "version": "v1.0.0",
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Pedro Faria",
+      "email": "eu@eusouopedro.com"
+    },
+    {
+      "name": "Nikita Popov",
+      "email": "nikic@php.net"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "5.5.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Router\\": "src/"
+    },
+    "files": ["src/functions.php"]
+  }
+}
